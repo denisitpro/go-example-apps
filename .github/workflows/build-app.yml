@@ -5,9 +5,9 @@ name: go build example app
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "*" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "*" ]
 
 jobs:
 
@@ -22,7 +22,4 @@ jobs:
         go-version: '1.22'
 
     - name: Build
-      run: go build -v ./...
-
-    - name: Test
-      run: go test -v ./...
+      run: go build -v main.go

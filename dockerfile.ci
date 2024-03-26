@@ -1,0 +1,15 @@
+# syntax=docker/dockerfile:experimental
+FROM golang:latest AS sources
+
+WORKDIR /opt/app/
+COPY ./ ./
+RUN go build main.go
+
+# run
+FROM ubuntu:latest
+WORKDIR /opt/app/
+
+COPY --from=sources /opt/app/main /opt/app/go-app
+
+EXPOSE 8082
+CMD ["./go-app"]
