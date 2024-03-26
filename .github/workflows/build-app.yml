@@ -5,7 +5,7 @@ name: go build example app
 
 on:
   push:
-    branches: [ "all" ]
+    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
