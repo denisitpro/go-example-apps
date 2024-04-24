@@ -12,9 +12,19 @@ func main() {
 		port = envPort // check env PORT
 	}
 
+	aiName := "Victorika" // default value for AI_NAME
+	if envAiName, ok := os.LookupEnv("AI_NAME"); ok {
+		aiName = envAiName // check env AI_NAME
+	}
+
+	aiTarget := "" // default value for AI_TARGET
+	if envAiTarget, ok := os.LookupEnv("AI_TARGET"); ok {
+		aiTarget = envAiTarget // check env AI_TARGET
+	}
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == http.MethodGet || r.Method == http.MethodHead {
-			fmt.Fprintf(w, "Hello World") // example answer
+			response := fmt.Sprintf("Hello World, %s is your assistant %s", aiName, aiTarget)
+			fmt.Fprintf(w, response) // example answer
 			logRequest(r)
 		} else {
 			http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed) // error exception

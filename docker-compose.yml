@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   vector:
-    image: denisitpro/go-example:test1
+    image: denisitpro/go-example:latest
     container_name: go-test
     hostname: go-test
     network_mode: host
