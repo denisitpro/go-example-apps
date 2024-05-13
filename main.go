@@ -23,7 +23,7 @@ func main() {
 	}
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == http.MethodGet || r.Method == http.MethodHead {
-			response := fmt.Sprintf("Hello World, %s is your assistant %s", aiName, aiTarget)
+			response := fmt.Sprintf("Hello World -2, %s is your assistant %s", aiName, aiTarget)
 			fmt.Fprintf(w, response) // example answer
 			logRequest(r)
 		} else {
